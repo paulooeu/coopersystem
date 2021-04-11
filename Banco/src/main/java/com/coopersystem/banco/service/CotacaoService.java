@@ -28,6 +28,7 @@ public class CotacaoService {
 
     public CotacaoDTO[] apiBB(String dataAnterior, String data) {
         String url = "http://api-server:8080//api/bb?dataInicio={dataInicio}&dataFinal={dataFinal}";
+
         HttpHeaders httpHeaders = new HttpHeaders();
         HttpEntity<?> entity = new HttpEntity<>(httpHeaders);
         ResponseEntity<ResponseDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, ResponseDTO.class,
