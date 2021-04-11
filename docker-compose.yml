@@ -1,0 +1,25 @@
+version: '2'
+services:
+  banco-server:
+    container_name: banco-server
+    build:
+      context: Banco
+      dockerfile: Dockerfile
+    image: banco-server:latest
+    ports:
+      - 8081:8081
+    networks:
+      - spring-cloud-network
+  api-server:
+    container_name: api-server
+    build:
+      context: api
+      dockerfile: Dockerfile
+    image: api-server:latest
+    ports:
+      - 8080:8080
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge
